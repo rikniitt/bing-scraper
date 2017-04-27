@@ -5,3 +5,5 @@ LOG_LEVEL='INFO'        # Allowed levels: DEBUG, INFO, WARNING, ERROR
 LOG_FOLDER='./logs'     # Relative to project dir or absolute
 
 DATABASE='./db/bing-scraper.sqlite'
+
+IMAGE_DIR='./images'

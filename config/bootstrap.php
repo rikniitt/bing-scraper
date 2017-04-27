@@ -3,6 +3,15 @@
 define('PROJECT_DIR', realpath(__DIR__ . '/..'));
 require_once PROJECT_DIR . '/vendor/autoload.php';
 
+// Path resolver helper
+function toRealpath($file) {
+    $firstChar = substr($file, 0, 1);
+    if ($firstChar === '.' || $firstChar !== '/') {
+        return realpath(PROJECT_DIR . '/' . $file);
+    } else {
+        return realpath($file);
+    }
+}
 
 // Parse configuration. Throws if config.file doesn't exist.
 $configFile = PROJECT_DIR . '/config/config.file';
@@ -15,16 +24,7 @@ $config = $parser->getContent();
 
 // Basic php config
 date_default_timezone_set($config['TIMEZONE']);
-
-// Path resolver helper
-function toRealpath($file) {
-    $firstChar = substr($file, 0, 1);
-    if ($firstChar === '.' || $firstChar !== '/') {
-        return realpath(PROJECT_DIR . '/' . $file);
-    } else {
-        return realpath($file);
-    }
-}
+define('IMAGE_DIR', toRealpath($config['IMAGE_DIR']));
 
 
 // Setup Pimple container

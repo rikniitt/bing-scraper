@@ -6,3 +6,4 @@ vendor/
 config/config.file
 logs/*.log
 db/bing-scraper.sqlite
+images/**/*.jpg
