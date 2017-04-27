@@ -5,7 +5,8 @@
         "illuminate/database": "5.2.45",
         "monolog/monolog": "1.22.1",
         "psy/psysh": "0.8.3",
-        "pimple/pimple": "3.0.2"
+        "pimple/pimple": "3.0.2",
+        "symfony/process": "3.2.7"
     },
     "autoload": {
         "psr-4": {

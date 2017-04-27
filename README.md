@@ -19,6 +19,7 @@ Project uses following [composer](https://getcomposer.org/doc/) [dependencies](h
  * [monolog/monolog](https://github.com/Seldaek/monolog)
  * [psy/psysh](https://github.com/bobthecow/psysh)
  * [pimple/pimple](https://github.com/silexphp/Pimple)
+ * [symfony/process](https://symfony.com/doc/current/components/process.html)
 
 
 # Install
