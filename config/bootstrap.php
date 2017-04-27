@@ -12,7 +12,10 @@ if (!is_readable($configFile)) {
 $parser = new M1\Env\Parser(file_get_contents($configFile));
 $config = $parser->getContent();
 
+
+// Basic php config
 date_default_timezone_set($config['TIMEZONE']);
+
 
 // Setup Pimple container
 $container = new Pimple\Container();
@@ -42,5 +45,16 @@ foreach ($monolog->getHandlers() as $handler) {
 $container['logger'] = $monolog;
 
 
+// Setup Illuminate database connection
+$database = new Illuminate\Database\Capsule\Manager();
+$database->addConnection([
+    'driver' => 'sqlite',
+    'database' => $config['DATABASE']
+]);
+$database->bootEloquent();
+$container['db'] = $database;
+
+
+// Done. Return pimple container.
 $container['logger']->debug('Bootstrapped.');
 return $container;
