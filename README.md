@@ -23,5 +23,5 @@ Project uses following [composer](https://getcomposer.org/doc/) [dependencies](h
 # Install
 
 If you are using vagrant with virtual box, then just `vagrant up`. Even if not, see *./Vagrantfile* 
-how to install the project. It contains "inline shell" scripts which should help yout to 
+how to install the project. It contains "inline shell" scripts which should help you to 
 install the project.

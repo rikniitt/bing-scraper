@@ -20,10 +20,12 @@ Vagrant.configure(2) do |config|
   end
   
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update > /dev/null 2>&1
-    sudo apt-get install -y php5-cli sqlite php5-sqlite git curl tree
+    ## Update and install packages as root
+    apt-get update > /dev/null 2>&1
+    apt-get install -y php5-cli sqlite php5-sqlite git curl tree
   SHELL
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    ## Install project
     cd /vagrant
     curl -sS https://getcomposer.org/installer | php
     php composer.phar install --no-progress --no-suggest --no-interaction --no-ansi
