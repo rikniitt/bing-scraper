@@ -14,6 +14,11 @@ $config = $parser->getContent();
 
 date_default_timezone_set($config['TIMEZONE']);
 
+// Setup Pimple container
+$container = new Pimple\Container();
+$container['config'] = $config;
+
+
 // Setup Monolog
 $logDirSetting = $config['LOG_FOLDER'];
 $firstChar = substr($logDirSetting, 0, 1);
@@ -34,7 +39,8 @@ $formatter = new Monolog\Formatter\LineFormatter($format, 'Y-m-d H:i:s');
 foreach ($monolog->getHandlers() as $handler) {
     $handler->setFormatter($formatter);
 }
+$container['logger'] = $monolog;
 
-$monolog->info('Hello world!');
 
-return $config;
+$container['logger']->debug('Bootstrapped.');
+return $container;
