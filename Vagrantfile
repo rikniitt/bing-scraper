@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     ## Update and install packages as root
     apt-get update > /dev/null 2>&1
-    apt-get install -y php5-cli sqlite php5-sqlite git curl tree
+    apt-get install -y php5-cli sqlite php5-sqlite php5-curl git curl tree
   SHELL
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     ## Install project
