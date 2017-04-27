@@ -9,6 +9,16 @@ Bing Scraper
  * PHP version >= 5.5.9
  * SQLite3 and php5-sqlite
 
+## [Composer](https://getcomposer.org/doc/) [dependencies](https://packagist.org/)
+
+ * [symfony/console](https://symfony.com/doc/current/components/console.html)
+ * [m1/env](https://github.com/m1/Env)
+ * [illuminate/database](https://github.com/illuminate/database)
+ * [monolog/monolog](https://github.com/Seldaek/monolog)
+ * [psy/psysh](https://github.com/bobthecow/psysh)
+
 # Install
 
-If you are using vagrant with virtual box, then just `vagrant up`.
+If you are using vagrant with virtual box, then just `vagrant up`. Even if not, see *./Vagrantfile* 
+how to install the project. It contains "inline shell" scripts which should help yout to 
+install the project.
