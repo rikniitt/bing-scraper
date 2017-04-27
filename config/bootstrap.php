@@ -16,6 +16,16 @@ $config = $parser->getContent();
 // Basic php config
 date_default_timezone_set($config['TIMEZONE']);
 
+// Path resolver helper
+function toRealpath($file) {
+    $firstChar = substr($file, 0, 1);
+    if ($firstChar === '.' || $firstChar !== '/') {
+        return realpath(PROJECT_DIR . '/' . $file);
+    } else {
+        return realpath($file);
+    }
+}
+
 
 // Setup Pimple container
 $container = new Pimple\Container();
@@ -23,13 +33,7 @@ $container['config'] = $config;
 
 
 // Setup Monolog
-$logDirSetting = $config['LOG_FOLDER'];
-$firstChar = substr($logDirSetting, 0, 1);
-if ($firstChar === '.' || $firstChar !== '/') {
-    $logDir = realpath(PROJECT_DIR . '/' . $logDirSetting);
-} else {
-    $logDir = realpath($logDirSetting);
-}
+$logDir = toRealpath($config['LOG_FOLDER']);
 if (!is_dir($logDir)) {
     throw new Exception('Log folder ' . $logDir . ' must exist!');
 }
@@ -46,10 +50,16 @@ $container['logger'] = $monolog;
 
 
 // Setup Illuminate database connection
+$databasePathInfo = pathinfo($config['DATABASE']);
+$databaseDir = toRealpath($databasePathInfo['dirname']);
+if (!$databaseDir) {
+    throw new Exception('Folder ' . $databasePathInfo['dirname'] . ' must exist to store database!');
+}
+$container['db.file'] = $databaseDir . '/' . $databasePathInfo['basename'];
 $database = new Illuminate\Database\Capsule\Manager();
 $database->addConnection([
     'driver' => 'sqlite',
-    'database' => $config['DATABASE']
+    'database' => $container['db.file']
 ]);
 $database->bootEloquent();
 $container['db'] = $database;

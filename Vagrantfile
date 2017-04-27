@@ -30,7 +30,6 @@ Vagrant.configure(2) do |config|
     curl -sS https://getcomposer.org/installer | php
     php composer.phar install --no-progress --no-suggest --no-interaction --no-ansi
     cp ./config/config.file.example ./config/config.file
-    touch ./db/bing-scraper.sqlite
-    ./bin/bing-scraper db:migrate
+    ./bin/bing-scraper install
   SHELL
 end
