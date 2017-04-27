@@ -56,7 +56,8 @@ class CreateMigration extends Command
         $words = preg_replace('/\s+/', ' ', $str);
         $trimmed = trim($words);
         $snake = str_replace(' ', '_', $trimmed);
-        return strtolower($snake);
+        $clean = preg_replace('/[^0-9A-z_]/', '', $snake);
+        return strtolower($clean);
     }
 
     private function migrationClass($name)
@@ -85,7 +86,11 @@ class {$className} implements Migration
 
     public function up(Builder \$schemaBuilder)
     {
-        // Do stuff.
+        \$schemaBuilder->create('some table', function(\$table) {
+            \$table->increments('id');
+            // \$table->string('someColumn');
+            \$table->timestamps();
+        });
     }
 
 }
