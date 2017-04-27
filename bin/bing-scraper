@@ -8,4 +8,5 @@ $console->add(new BingScraper\Console\Command\Install());
 $console->add(new BingScraper\Console\Command\Repl());
 $console->add(new BingScraper\Console\Command\Db\Console());
 $console->add(new BingScraper\Console\Command\Db\CreateMigration());
+$console->add(new BingScraper\Console\Command\Db\Migrate());
 $console->run();
