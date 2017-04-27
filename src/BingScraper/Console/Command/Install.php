@@ -4,6 +4,7 @@ namespace BingScraper\Console\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\ArrayInput;
 
 class Install extends Command
 {
@@ -40,6 +41,9 @@ class Install extends Command
     private function databaseMigrate()
     {
         $this->out->writeln("Running database migrations.");
+
+        $migrate = $this->getApplication()->find('db:migrate');
+        return $migrate->run(new ArrayInput([]), $this->out);
     }
 
 }
