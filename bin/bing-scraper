@@ -6,4 +6,5 @@ $container = require_once __DIR__ . '/../config/bootstrap.php';
 $console = new BingScraper\Console\Application($container, 'bing-scraper', '0.0.1');
 $console->add(new BingScraper\Console\Command\Install());
 $console->add(new BingScraper\Console\Command\Repl());
+$console->add(new BingScraper\Console\Command\Db\Console());
 $console->run();
