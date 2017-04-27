@@ -9,13 +9,16 @@ Bing Scraper
  * PHP version >= 5.5.9
  * SQLite3 and php5-sqlite
 
-## [Composer](https://getcomposer.org/doc/) [dependencies](https://packagist.org/)
+## Dependencies
+
+Project uses following [composer](https://getcomposer.org/doc/) [dependencies](https://packagist.org/):
 
  * [symfony/console](https://symfony.com/doc/current/components/console.html)
  * [m1/env](https://github.com/m1/Env)
  * [illuminate/database](https://github.com/illuminate/database)
  * [monolog/monolog](https://github.com/Seldaek/monolog)
  * [psy/psysh](https://github.com/bobthecow/psysh)
+
 
 # Install
 
