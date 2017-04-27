@@ -6,7 +6,7 @@ Bing Scraper
 
 # Requirements
 
- * PHP version >= 5.6.4
+ * PHP version >= 5.5.9
  * SQLite3 and php5-sqlite
 
 # Install

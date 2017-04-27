@@ -20,7 +20,15 @@ Vagrant.configure(2) do |config|
   end
   
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
-    sudo apt-get install -y php5-cli php5-sqlite git curl tree
+    sudo apt-get update > /dev/null 2>&1
+    sudo apt-get install -y php5-cli sqlite php5-sqlite git curl tree
+  SHELL
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    cd /vagrant
+    curl -sS https://getcomposer.org/installer | php
+    php composer.phar install --no-progress --no-suggest --no-interaction --no-ansi
+    cp ./config/config.file.example ./config/config.file
+    touch ./db/bing-scraper.sqlite
+    ./bin/bing-scraper db:migrate
   SHELL
 end
