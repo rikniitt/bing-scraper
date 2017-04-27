@@ -7,4 +7,5 @@ $console = new BingScraper\Console\Application($container, 'bing-scraper', '0.0.
 $console->add(new BingScraper\Console\Command\Install());
 $console->add(new BingScraper\Console\Command\Repl());
 $console->add(new BingScraper\Console\Command\Db\Console());
+$console->add(new BingScraper\Console\Command\Db\CreateMigration());
 $console->run();
