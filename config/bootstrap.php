@@ -62,7 +62,10 @@ $database->addConnection([
     'database' => $container['db.file']
 ]);
 $database->bootEloquent();
-$container['db'] = $database;
+$container['db.manager'] = $database;
+$container['db.connection'] = $database->getConnection();
+$container['db.schema'] = $database->getConnection()->getSchemaBuilder();
+$container['db'] = $container['db.connection'];
 
 
 // Done. Return pimple container.

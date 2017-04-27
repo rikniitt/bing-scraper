@@ -35,8 +35,8 @@ class Migrate extends Command
     private function checkLatestMigrationTime()
     {
         $container = $this->getContainer();
-        $db = $container['db']->getConnection();
-        $schema = $db->getSchemaBuilder();
+        $db = $container['db'];
+        $schema = $container['db.schema'];
 
         if (!$schema->hasTable('migrations')) {
             $this->out->writeln('Migrations table doesn\'t exist.');
@@ -106,8 +106,8 @@ class Migrate extends Command
     private function executeMigrations($fileList)
     {
         $container = $this->getContainer();
-        $db = $container['db']->getConnection();
-        $schema = $db->getSchemaBuilder();
+        $db = $container['db'];
+        $schema = $container['db.schema'];
 
         foreach ($fileList as $migrationFile) {
             $clazz = $this->getClassNameIn($migrationFile);
