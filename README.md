@@ -1,7 +1,7 @@
 Bing Scraper
 =====================================
 
-[Bing homepage gallery](http://www.bing.com/gallery/) scraper implented with PHP.
+[Bing homepage image gallery](http://www.bing.com/gallery/) scraper implented with PHP.
 
 
 # Requirements
@@ -27,3 +27,11 @@ Project uses following [composer](https://getcomposer.org/doc/) [dependencies](h
 If you are using vagrant with virtual box, then just `vagrant up`. Even if not, see *./Vagrantfile* 
 how to install the project. It contains "inline shell" scripts which should help you to 
 install the project.
+
+
+# Usage
+
+Run `bin/bing-scraper hpia:scrape` to start scraping images from homepage image galler. 
+Use `bin/bing-scraper hpia:download` to download scraped images.
+
+You can see all available commands by running `bin/bing-scraper` without arguments.
