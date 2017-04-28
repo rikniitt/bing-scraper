@@ -22,25 +22,26 @@ class GetLatest extends Command
     {
         parent::execute($in, $out);
 
-        $client = new Client();
+        $container = $this->getContainer();
+
+        $client = new Client($container['logger']);
         $result = $client->get();
-        $imageData = $result['images'][0];
 
-        $lastSaved = $this->getLastSaved();
+        if (!$result || !$result->imageCount()) {
+            $this->out->writeln('Failed to get latest image');
+        }
 
-        if ($lastSaved && $lastSaved->hash === $imageData['hsh']) {
+        $entity = $result->getImages()[0];
+        $lastSaved = Image::latest()->first();
+
+        if ($lastSaved && $lastSaved->hash === $entity->hsh) {
             $this->out->writeln('Newest already saved.');
             return 0;
         }
 
-        $this->out->writeln('Got new image. Saving it.');
+        $this->out->writeln("Got new image $entity. Saving it");
         
-        $image = new Image();
-        $image->start_time = DateTime::createFromFormat('Ymd', $imageData['startdate']);
-        $image->end_time = DateTime::createFromFormat('Ymd', $imageData['enddate']);
-        $image->url = $imageData['url'];
-        $image->copyright = $imageData['copyright'];
-        $image->hash = $imageData['hsh'];
+        $image = Image::createFromImageEntity($entity);
         $image->save();
 
         $this->out->writeln('Downloading image.');
@@ -49,10 +50,5 @@ class GetLatest extends Command
         $download->get($image);
 
         $this->out->writeln('New image saved to ' . $image->filepath);
-    }
-
-    private function getLastSaved()
-    {
-        return Image::orderBy('end_time', 'desc')->first();
     }
 }
