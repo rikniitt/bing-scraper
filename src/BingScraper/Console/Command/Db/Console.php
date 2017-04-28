@@ -13,7 +13,7 @@ class Console extends Command
     protected function configure()
     {
         $this->setName('db:console')
-             ->setDescription('Open database console.');
+             ->setDescription('Open database console');
     }
 
     protected function execute(InputInterface $in, OutputInterface $out)

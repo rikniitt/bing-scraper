@@ -15,7 +15,7 @@ class GetLatest extends Command
     protected function configure()
     {
         $this->setName('hpia:get-latest')
-             ->setDescription('Get and download latest image from Bing Homepage Image Arcive.');
+             ->setDescription('Get and download latest image from Bing Homepage Image Arcive');
     }
 
     protected function execute(InputInterface $in, OutputInterface $out)

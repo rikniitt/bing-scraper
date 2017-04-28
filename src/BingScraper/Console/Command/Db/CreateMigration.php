@@ -13,7 +13,7 @@ class CreateMigration extends Command
     protected function configure()
     {
         $this->setName('db:create-migration')
-             ->setDescription('Create new migration file.')
+             ->setDescription('Create new migration file')
              ->addArgument('migration-name', InputArgument::OPTIONAL, 'Descriptive name for the migration in snake_case.');
     }
 

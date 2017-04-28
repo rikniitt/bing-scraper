@@ -11,7 +11,7 @@ class Install extends Command
     protected function configure()
     {
         $this->setName('install')
-             ->setDescription('Install the project.');
+             ->setDescription('Install the project');
     }
 
     protected function execute(InputInterface $in, OutputInterface $out)

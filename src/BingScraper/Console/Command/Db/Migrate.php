@@ -14,7 +14,7 @@ class Migrate extends Command
     protected function configure()
     {
         $this->setName('db:migrate')
-             ->setDescription('Run database migrations.');
+             ->setDescription('Run database migrations');
     }
 
     protected function execute(InputInterface $in, OutputInterface $out)

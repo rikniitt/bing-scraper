@@ -12,7 +12,7 @@ class Repl extends Command
     protected function configure()
     {
         $this->setName('repl')
-             ->setDescription('Open PHP REPL.');
+             ->setDescription('Open PHP REPL');
     }
 
     protected function execute(InputInterface $in, OutputInterface $out)
