@@ -23,7 +23,10 @@ class Download
         $start = $image->start_time;
         
         $dir = IMAGE_DIR . '/' . $start->format('Y') . '/' . $start->format('m');
-        mkdir($dir, 0777, true);
+
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
 
         return $dir;
     }
