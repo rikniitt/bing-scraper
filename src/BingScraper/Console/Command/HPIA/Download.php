@@ -17,7 +17,7 @@ class Download extends Command
     protected function configure()
     {
         $this->setName('hpia:download')
-             ->setDescription('Download images scraped from Bing Homepage Image Arcive');
+             ->setDescription('Download images scraped from Bing Homepage Image Archive');
     }
 
     protected function execute(InputInterface $in, OutputInterface $out)

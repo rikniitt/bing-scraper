@@ -16,7 +16,7 @@ class Scrape extends Command
     protected function configure()
     {
         $this->setName('hpia:scrape')
-             ->setDescription('Scrape images from Bing Homepage Image Arcive')
+             ->setDescription('Scrape images from Bing Homepage Image Archive')
              ->addArgument('offset', InputArgument::OPTIONAL, 'Where to start from?', 0)
              ->addArgument('limit', InputArgument::OPTIONAL, 'How many to get per request?', 8);
     }
