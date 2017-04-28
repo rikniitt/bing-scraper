@@ -12,6 +12,11 @@ class Image extends Model
         return $query->orderBy('end_time', 'desc');
     }
 
+    public function scopeNotDownloaded(Query $query)
+    {
+        return $query->where('filepath', null);
+    }
+
     public static function createFromImageEntity(ImageEntity $entity)
     {
         $image = new static();

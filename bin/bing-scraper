@@ -11,4 +11,6 @@ $console->add(new BingScraper\Console\Command\Db\Db());
 $console->add(new BingScraper\Console\Command\Db\CreateMigration());
 $console->add(new BingScraper\Console\Command\Db\Migrate());
 $console->add(new BingScraper\Console\Command\HPIA\GetLatest());
+$console->add(new BingScraper\Console\Command\HPIA\Scrape());
+$console->add(new BingScraper\Console\Command\HPIA\Download());
 $console->run();

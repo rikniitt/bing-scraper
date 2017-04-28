@@ -1,5 +1,8 @@
 {
     "require": {
+        "ext-pdo_sqlite": "*",
+        "ext-curl": "*",
+        "ext-pcntl": "*",
         "symfony/console": "3.2.7",
         "m1/env": "2.1.0",
         "illuminate/database": "5.2.45",

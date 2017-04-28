@@ -3,6 +3,7 @@
 namespace BingScraper\HomepageImageArchive;
 
 use BingScraper\Database\Model\Image;
+use Carbon\Carbon;
 
 class Download
 {
