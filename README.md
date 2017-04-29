@@ -1,7 +1,7 @@
 Bing Scraper
 =====================================
 
-[Bing homepage image gallery](http://www.bing.com/gallery/) scraper implented with PHP.
+[Bing homepage image gallery](http://www.bing.com/gallery/) scraper implemented with PHP.
 
 
 # Requirements
