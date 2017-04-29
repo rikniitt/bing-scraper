@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Builder;
 
 class CreateImagesTable implements Migration
 {
-
     public function up(Builder $schemaBuilder)
     {
         $schemaBuilder->create('images', function($table) {
@@ -18,5 +17,4 @@ class CreateImagesTable implements Migration
             $table->timestamps();
         });
     }
-
 }

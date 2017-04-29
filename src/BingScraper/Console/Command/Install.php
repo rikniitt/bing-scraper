@@ -45,5 +45,4 @@ class Install extends Command
         $migrate = $this->getApplication()->find('db:migrate');
         return $migrate->run(new ArrayInput([]), $this->out);
     }
-
 }

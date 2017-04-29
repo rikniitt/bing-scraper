@@ -83,7 +83,6 @@ use Illuminate\Database\Schema\Builder;
 
 class {$className} implements Migration
 {
-
     public function up(Builder \$schemaBuilder)
     {
         \$schemaBuilder->create('some table', function(\$table) {
@@ -92,7 +91,6 @@ class {$className} implements Migration
             \$table->timestamps();
         });
     }
-
 }
 
 PHP;

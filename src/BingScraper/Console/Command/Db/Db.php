@@ -22,5 +22,4 @@ class Db extends Command
         $dbConsole = $this->getApplication()->find('db:console');
         return $dbConsole->run(new ArrayInput([]), $out);
     }
-
 }

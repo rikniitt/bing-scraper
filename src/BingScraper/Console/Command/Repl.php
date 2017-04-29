@@ -32,5 +32,4 @@ class Repl extends Command
             $this->out->writeln('<error>' . $e->getMessage() . '</error>');
         }
     }
-
 }

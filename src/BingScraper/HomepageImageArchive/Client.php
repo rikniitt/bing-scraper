@@ -7,7 +7,6 @@ use Exception;
 
 class Client
 {
-
     const URL = 'http://www.bing.com/HPImageArchive.aspx?format=js&idx=%d&n=%d&mkt=en-US';
     private $logger;
 

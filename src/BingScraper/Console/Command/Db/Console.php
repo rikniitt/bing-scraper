@@ -36,5 +36,4 @@ class Console extends Command
             $this->out->writeln('<error>' . $e->getMessage() . '</error>');
         }
     }
-
 }
